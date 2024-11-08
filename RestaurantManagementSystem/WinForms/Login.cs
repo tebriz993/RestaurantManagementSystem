@@ -6,17 +6,17 @@ using RestaurantManagementSystem.Entities;
 
 namespace RestaurantManagementSystem.WinForms
 {
-    public partial class Login : Form // Class name changed to Login
+    public partial class Login : Form 
     {
         private List<User> users;
 
-        public Login() // Constructor name changed to Login to match the class name
+        public Login()
         {
             InitializeComponent();
             InitializeUsers();
-            checkShowPassword.CheckedChanged += new EventHandler(ShowPassword); // Attach ShowPassword event
-            btnLogin.Click += new EventHandler(button1_Click); // Attach Login button click event
-            btnCancel.Click += new EventHandler(btnCancel_Click); // Attach Cancel button click event
+            checkShowPassword.CheckedChanged += new EventHandler(ShowPassword); 
+            btnLogin.Click += new EventHandler(button1_Click); 
+            btnCancel.Click += new EventHandler(btnCancel_Click); 
         }
 
         private void InitializeUsers()
@@ -31,8 +31,8 @@ namespace RestaurantManagementSystem.WinForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text.Trim(); // Assuming txtUsername is the TextBox for username
-            string password = txtPassword.Text;        // Assuming txtPassword is the TextBox for password
+            string username = txtUsername.Text.Trim(); 
+            string password = txtPassword.Text;        
 
             try
             {
@@ -47,8 +47,7 @@ namespace RestaurantManagementSystem.WinForms
                 if (authenticatedUser != null)
                 {
                     MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // Proceed to main application form
-                    // Example: new MainForm().Show(); this.Hide();
+                    
                 }
                 else
                 {
@@ -61,7 +60,7 @@ namespace RestaurantManagementSystem.WinForms
             }
         }
 
-        // ShowPassword method to toggle password visibility
+       
         private void ShowPassword(object sender, EventArgs e)
         {
             if (checkShowPassword.Checked)
@@ -74,18 +73,15 @@ namespace RestaurantManagementSystem.WinForms
             }
         }
 
-        // Cancel button click event to clear username and password fields
+        
         private void btnCancel_Click(object sender, EventArgs e)
         {
             txtUsername.Clear();
             txtPassword.Clear();
-            checkShowPassword.Checked = false; // Uncheck Show Password if it's checked
-            txtPassword.PasswordChar = '*'; // Reset the password mask
+            checkShowPassword.Checked = false; 
+            txtPassword.PasswordChar = '*'; 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            // Additional button functionality if needed
-        }
+        
     }
 }
